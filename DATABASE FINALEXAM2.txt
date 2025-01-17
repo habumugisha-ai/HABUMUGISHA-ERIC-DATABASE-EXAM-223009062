@@ -1,0 +1,281 @@
+partB. create table departments(employee_id int(10),department name varchar(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name varchar(20))' at line 1
+mysql> create table departments(employee_id int(10),department_name varchar(20));
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> insert into departments values('20','accountaty');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into departments values('20','administrator');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into departments values('40','human resources');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into departments values('50','it');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into departments values('60','hod');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  update departments set employee_id='30' where department_name='accountaty';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  alter table departments add colmn city varchar(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'city varchar(10)' at line 1
+mysql>  alter table departments add column city varchar(10);
+Query OK, 5 rows affected (0.05 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql>  alter table departments add column departmentno varchar(10);
+Query OK, 5 rows affected (0.06 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select *from departments;
++-------------+-----------------+------+--------------+
+| employee_id | department_name | city | departmentno |
++-------------+-----------------+------+--------------+
+|          30 | accountaty      | NULL | NULL         |
+|          20 | administrator   | NULL | NULL         |
+|          40 | human resources | NULL | NULL         |
+|          50 | it              | NULL | NULL         |
+|          60 | hod             | NULL | NULL         |
++-------------+-----------------+------+--------------+
+5 rows in set (0.00 sec)
+
+mysql>  update departments set city='kigali' where department_name='accountaty';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set city='muhanga' where department_name='administrator';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set city='huye' where department_name='human resources';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set city='ruhango' where department_name='it';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set city='tab' where department_name='hod';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> desc departments;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_id     | int         | YES  |     | NULL    |       |
+| department_name | varchar(20) | YES  |     | NULL    |       |
+| city            | varchar(10) | YES  |     | NULL    |       |
+| departmentno    | varchar(10) | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql>  alter table departments renam colmn employee_id to department_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'renam colmn employee_id to department_id' at line 1
+mysql>  alter table departments rename column employee_id to department_id;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from departments;
++---------------+-----------------+---------+--------------+
+| department_id | department_name | city    | departmentno |
++---------------+-----------------+---------+--------------+
+|            30 | accountaty      | kigali  | NULL         |
+|            20 | administrator   | muhanga | NULL         |
+|            40 | human resources | huye    | NULL         |
+|            50 | it              | ruhango | NULL         |
+|            60 | hod             | tab     | NULL         |
++---------------+-----------------+---------+--------------+
+5 rows in set (0.00 sec)
+
+mysql>  update departments set departmentno='3000' where city='kigali';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set departmentno='4000' where city='muhanga';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set departmentno='5000' where city='huye';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set departmentno='6000' where city='ruhango';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update departments set departmentno='7000' where city='tab';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> create table employees(employee_id int(10),employee_name varchar(20),departmentno int(10),employeeno int(15),locatio varchar(10));
+Query OK, 0 rows affected, 3 warnings (0.02 sec)
+
+mysql> insert into departments values('500','shukuru','400','1','tumba');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into departments values('500','shukuru','400','1','tumba');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employees values('500','shukuru','400','1','tumba');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employees values('600','tuyizere','500','12','newyork');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employees values('620','mugisha','600','13','kigali');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employees values('670','mutangana','650','14','nyamata');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc employyes;
+ERROR 1146 (42S02): Table 'finalexam.employyes' doesn't exist
+mysql> desc employees;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| employee_id   | int         | YES  |     | NULL    |       |
+| employee_name | varchar(20) | YES  |     | NULL    |       |
+| departmentno  | int         | YES  |     | NULL    |       |
+| employeeno    | int         | YES  |     | NULL    |       |
+| locatio       | varchar(10) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from departments;
++---------------+-----------------+---------+--------------+
+| department_id | department_name | city    | departmentno |
++---------------+-----------------+---------+--------------+
+|            30 | accountaty      | kigali  | 3000         |
+|            20 | administrator   | muhanga | 4000         |
+|            40 | human resources | huye    | 5000         |
+|            50 | it              | ruhango | 6000         |
+|            60 | hod             | tab     | 7000         |
++---------------+-----------------+---------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select *from employees;
++-------------+---------------+--------------+------------+---------+
+| employee_id | employee_name | departmentno | employeeno | locatio |
++-------------+---------------+--------------+------------+---------+
+|         500 | shukuru       |          400 |          1 | tumba   |
+|         600 | tuyizere      |          500 |         12 | newyork |
+|         620 | mugisha       |          600 |         13 | kigali  |
+|         670 | mutangana     |          650 |         14 | nyamata |
++-------------+---------------+--------------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql>  alter table employees rename column departmentno to department_id;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from employees;
++-------------+---------------+---------------+------------+---------+
+| employee_id | employee_name | department_id | employeeno | locatio |
++-------------+---------------+---------------+------------+---------+
+|         500 | shukuru       |           400 |          1 | tumba   |
+|         600 | tuyizere      |           500 |         12 | newyork |
+|         620 | mugisha       |           600 |         13 | kigali  |
+|         670 | mutangana     |           650 |         14 | nyamata |
++-------------+---------------+---------------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employees add foreign key(department_id) references departments(department_id);
+Query OK, 4 rows affected (0.03 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select employee_name, department_names from employees right outer join departments on employees.department_id=departments.department_id;
+ERROR 1054 (42S22): Unknown column 'department_names' in 'field list'
+mysql> select employee_name, department_name from employees right outer join departments on employees.department_id=departments.department_id;
++---------------+-----------------+
+| employee_name | department_name |
++---------------+-----------------+
+| NULL          | accountaty      |
+| NULL          | administrator   |
+| NULL          | human resources |
+| NULL          | it              |
+| NULL          | hod             |
++---------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select employee_name, department_name from employees left outer join departments on employees.department_id=departments.department_id;
++---------------+-----------------+
+| employee_name | department_name |
++---------------+-----------------+
+| shukuru       | NULL            |
+| tuyizere      | NULL            |
+| mugisha       | NULL            |
+| mutangana     | NULL            |
++---------------+-----------------+
+4 rows in set (0.00 sec)
+
+mysql> create table STUDENT(STUDENTID int(10),FULLNAMES VARCHAR(20),GENDER VARCHAR(10),AGE int(15),DEPARTMENT varchar(10));
+Query OK, 0 rows affected, 2 warnings (0.01 sec)
+
+mysql> create table STUDENT(STUDENTID int(10),FULLNAMES VARCHAR(20),GENDER VARCHAR(10),AGE int(15),DEPARTMENT varchar(10));
+ERROR 1050 (42S01): Table 'student' already exists
+mysql> DROP TABLE STUDENT;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table STUDENT(STUDENTID int(5),FULLNAMES VARCHAR(25),GENDER VARCHAR(6),AGE int(2),DEPARTMENT varchar(30));
+Query OK, 0 rows affected, 2 warnings (0.01 sec)
+
+mysql> insert into employees values('222','mugisha JIMMY','MALE','20','BIT');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into employees values('223','mugishaERIC','FEMALE','40','ACC');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into employees values('224','TUYIZERE','MALE','44','CAS');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into employees values('226','SHUKURUMUNGU','FEMALE','46','CAVEM');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT *FROM STUDENT;
+Empty set (0.00 sec)
+
+mysql> insert into STUDENT valuES('222','mugisha JIMMY','MALE','20','BIT');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into STUDENT valuES('222','mugisha JIMMY','MALE','20','BIT');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> \
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> insert into STUDENT values('226','SHUKURUMUNGU','FEMALE','46','CAVEM');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into STUDENT values('224','TUYIZERE','MALE','44','CAS');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into STUDENT values('223','mugishaERIC','FEMALE','40','ACC');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT *FROM STUDENT;
++-----------+---------------+--------+------+------------+
+| STUDENTID | FULLNAMES     | GENDER | AGE  | DEPARTMENT |
++-----------+---------------+--------+------+------------+
+|       222 | mugisha JIMMY | MALE   |   20 | BIT        |
+|       222 | mugisha JIMMY | MALE   |   20 | BIT        |
+|       226 | SHUKURUMUNGU  | FEMALE |   46 | CAVEM      |
+|       224 | TUYIZERE      | MALE   |   44 | CAS        |
+|       223 | mugishaERIC   | FEMALE |   40 | ACC        |
++-----------+---------------+--------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from student where age<20
+    -> delete from student where age<20;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete from student where age<20' at line 2
+mysql> delete from student where age<20;
+Query OK, 0 rows affected (0.00 sec)

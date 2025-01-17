@@ -1,0 +1,19 @@
+PARTC. create table employees(employee_ID int(5),Firt_name VARCHAR(25),last_name VARCHAR(15),email varchar (30),phone_number varchar(13),number int(12),hire_date date,job_id int,salary int(7),commision_pct varchar(20),manager_id int,department_id int);
+ERROR 1050 (42S01): Table 'employees' already exists
+mysql> create table employees2(employee_ID int(5),Firt_name VARCHAR(25),last_name VARCHAR(15),email varchar (30),phone_number varchar(13),number int(12),hire_date date,job_id int,salary int(7),commision_pct varchar(20),manager_id int,department_id int);
+Query OK, 0 rows affected, 3 warnings (0.02 sec)
+
+mysql> nsert into employees2 values('1','TUYIZERE','Elie', 'elie@gmail','0790983672','2000-01-12','10','20000','carri','100','50');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nsert into employees2 values('1','TUYIZERE','Elie', 'elie@gmail','0790983672','2' at line 1
+mysql> insert into employees2 values('1','TUYIZERE','Elie', 'elie@gmail','0790983672','2000-01-12','10','20000','carri','100','50');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employees2 values('1','TUYIZERE','Elie', 'elie@gmail','0790983672','1','2000-01-12','10','20000','carri','100','50');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employees2 values('2','james','kari', 'jamese@gmail','0720983672','2','2000-01-22','20','60000','gdda','100','70');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employees2 values('2','mugisha','eric','erice@gmail','0730983672','3','2000-01-23','22','62000',sssaa','110','80');
+    '> insert into employees2 values('2','mugisha','eric','erice@gmail','0730983672','3','2000-01-23','22','62000','sssaa','110','80');
+    '> insert into employees2 values('2','mugisha','eric','erice@gmail','0730983672','3','2000-01-23','22','62000','sssaa','110','80');
+    '>

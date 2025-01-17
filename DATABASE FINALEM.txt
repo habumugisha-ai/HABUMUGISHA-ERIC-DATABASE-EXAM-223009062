@@ -1,0 +1,113 @@
+A.Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 70
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> use finalexam;
+Database changed
+mysql> mysql> insert into Client_master values('10','TUYIZERE', 'Bugesera/Nyamata','Nyamata','7000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> insert into Client_master values('10','TUYIZERE', 'Bugesera/Nyamata','Nya' at line 1
+mysql> mysql> insert into Client_master values('10','jimmy', 'butare/huye','Nyanza','7000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> insert into Client_master values('10','jimmy', 'butare/huye','Nyanza','70' at line 1
+mysql> mysql> insert into Client_master values('10','jimmy', 'butare/huye','Nyanza','7000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> insert into Client_master values('10','jimmy', 'butare/huye','Nyanza','70' at line 1
+mysql> mysql> insert into Client_master values('10','jimmy', 'butare/huye','Nyanza','rwanda','7000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> insert into Client_master values('10','jimmy', 'butare/huye','Nyanza','rw' at line 1
+mysql> mysql> insert into Client_master values('10','jimmy','butare/huye','Nyanza','rwanda','7000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> insert into Client_master values('10','jimmy','butare/huye','Nyanza','rwa' at line 1
+mysql> mysql> insert into Client_master values('110','jimmy','butare/huye','Nyanza','rwanda','7000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> insert into Client_master values('110','jimmy','butare/huye','Nyanza','rw' at line 1
+mysql> show tables;
++---------------------+
+| Tables_in_finalexam |
++---------------------+
+| client_master       |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into client_master values('20','eric','ngoma/butare','huye','rwanda','3000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_master values('30','gwaki','ngwe/bunyoro','kabare','uganda','3000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_master values('40','muhoza','muhoza/byangabo','musanze','rwanda','4000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_master values('50','muhzaa','rwafandi/rukomo','gicumbi','rwanda','5000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_master values('60','manzi','mutete/kinihira','rulindo','rwanda','6000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select 8FROM CLIENT_MASTER;
+ERROR 1054 (42S22): Unknown column '8FROM' in 'field list'
+mysql> select FROM CLIENT_MASTER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM CLIENT_MASTER' at line 1
+mysql> select *FROM CLIENT_MASTER;
++----------+--------+-----------------+---------+--------+---------+
+| clientno | name   | address         | city    | state  | bal_due |
++----------+--------+-----------------+---------+--------+---------+
+|       20 | eric   | ngoma/butare    | huye    | rwanda |    3000 |
+|       30 | gwaki  | ngwe/bunyoro    | kabare  | uganda |    3000 |
+|       40 | muhoza | muhoza/byangabo | musanze | rwanda |    4000 |
+|       50 | muhzaa | rwafandi/rukomo | gicumbi | rwanda |    5000 |
+|       60 | manzi  | mutete/kinihira | rulindo | rwanda |    6000 |
++----------+--------+-----------------+---------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT name from client_master where bal_due>5000;
++-------+
+| name  |
++-------+
+| manzi |
++-------+
+1 row in set (0.00 sec)
+
+mysql>  update client_master set clientno='12' where bal_due='400';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select *from client_master;
++----------+--------+-----------------+---------+--------+---------+
+| clientno | name   | address         | city    | state  | bal_due |
++----------+--------+-----------------+---------+--------+---------+
+|       20 | eric   | ngoma/butare    | huye    | rwanda |    3000 |
+|       30 | gwaki  | ngwe/bunyoro    | kabare  | uganda |    3000 |
+|       40 | muhoza | muhoza/byangabo | musanze | rwanda |    4000 |
+|       50 | muhzaa | rwafandi/rukomo | gicumbi | rwanda |    5000 |
+|       60 | manzi  | mutete/kinihira | rulindo | rwanda |    6000 |
++----------+--------+-----------------+---------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql>  update client_master set clientno='12' where bal_due='4000';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from client_master;
++----------+--------+-----------------+---------+--------+---------+
+| clientno | name   | address         | city    | state  | bal_due |
++----------+--------+-----------------+---------+--------+---------+
+|       20 | eric   | ngoma/butare    | huye    | rwanda |    3000 |
+|       30 | gwaki  | ngwe/bunyoro    | kabare  | uganda |    3000 |
+|       12 | muhoza | muhoza/byangabo | musanze | rwanda |    4000 |
+|       50 | muhzaa | rwafandi/rukomo | gicumbi | rwanda |    5000 |
+|       60 | manzi  | mutete/kinihira | rulindo | rwanda |    6000 |
++----------+--------+-----------------+---------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql>  update client_master set bal_due='5100' where clientno='12';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> alter table client_master rename client12;
+Query OK, 0 rows affected (0.02 sec)
